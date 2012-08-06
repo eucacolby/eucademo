@@ -1,0 +1,10 @@
+#cloud-config
+apt-update: true
+
+packages:
+ - puppet
+
+runcmd:
+ - /bin/sed -i.bak "1 a pluginsync=true" /etc/puppet/puppet.conf
+ - /bin/echo '173.205.188.81 puppet' >> /etc/hosts
+ - /bin/echo 'apache_server' >> /etc/role
